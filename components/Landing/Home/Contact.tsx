@@ -18,9 +18,9 @@ import { Label } from "@/components/ui/label";
 
 const Contact = () => {
   return (
-    <section className="py-32 bg-gray-50 flex items-center justify-center bg-[#F5F7FA] ">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+    <section className="py-20 md:py-32 bg-[#F5F7FA] flex items-center justify-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-12 lg:gap-24">
 
           {/* Left Side - Image */}
           <motion.div
@@ -30,13 +30,12 @@ const Contact = () => {
             viewport={{ once: true }}
             className="flex-1 relative w-full flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[500px] h-[567px] aspect-square rounded-xl overflow-hidden bg-blue-50/50">
-              {/* Check if image component works correctly with external domains, otherwise use public placeholder */}
+            <div className="relative w-full max-w-[450px] md:max-w-[500px] h-[350px] sm:h-[450px] md:h-[567px] rounded-2xl overflow-hidden bg-blue-50/50">
               <img
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 alt="Man in suit pointing"
                 className="object-cover w-full h-full object-top mix-blend-multiply"
-                style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
+                style={{ maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)' }}
               />
             </div>
           </motion.div>
@@ -47,9 +46,9 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex-1 w-full bg-white p-8 md:p-7 rounded-lg shadow-sm border border-gray-100"
+            className="flex-1 w-full bg-white p-6 sm:p-8 rounded-2xl md:rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100"
           >
-            <h2 className="text-2xl md:text-3xl font-medium text-[#0A2540] mb-8">
+            <h2 className="text-2xl sm:text-3xl font-medium text-[#0A2540] mb-6 sm:mb-8">
               Ask us anything!
             </h2>
 

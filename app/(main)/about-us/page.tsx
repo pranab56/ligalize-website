@@ -24,7 +24,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="flex flex-col gap-20 py-20">
+    <div className="flex flex-col gap-12 md:gap-20 py-10 md:py-20 lg:py-24">
       {/* Optional: Consistent Banner across pages */}
       <Banner
         title="Redefining Trust in the Digital Age"
@@ -33,7 +33,7 @@ export default function AboutPage() {
         buttonLink="/contact-us"
       />
 
-      <div className="container mx-auto max-w-6xl space-y-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl space-y-8">
 
         {/* Our Mission Section */}
         <motion.div
@@ -43,9 +43,9 @@ export default function AboutPage() {
           variants={itemVariants}
         >
           <Card className="border-0 shadow-lg shadow-blue-900/5 overflow-hidden">
-            <CardContent className="p-10 md:p-14 text-center bg-white rounded-xl">
+            <CardContent className="p-8 sm:p-10 md:p-14 text-center bg-white rounded-xl">
               <h2 className="text-2xl font-bold text-blue-600 mb-6">Our Mission</h2>
-              <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed text-lg">
+              <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
                 To provide secure, accessible, and legally-binding authentication globally, ensuring every document is verified with absolute integrity and technological excellence.
               </p>
             </CardContent>
@@ -59,22 +59,22 @@ export default function AboutPage() {
           viewport={{ once: true }}
           variants={itemVariants}
         >
-          <div className="bg-[#eff6ff] rounded-2xl p-10 md:p-14 border border-blue-50 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-blue-100/50">
+          <div className="bg-[#eff6ff] rounded-2xl p-8 sm:p-10 md:p-14 border border-blue-50 shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-blue-100/50">
 
-              <div className="text-center px-4 pt-4 md:pt-0">
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">1M+</div>
-                <div className="text-gray-500 font-medium tracking-wide text-sm md:text-base">DOCUMENTS VERIFIED</div>
+              <div className="text-center px-4 pt-2 md:pt-0">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-2">1M+</div>
+                <div className="text-gray-500 font-medium tracking-wide text-xs sm:text-sm md:text-base">DOCUMENTS VERIFIED</div>
               </div>
 
-              <div className="text-center px-4 pt-8 md:pt-0">
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">50+</div>
-                <div className="text-gray-500 font-medium tracking-wide text-sm md:text-base">COUNTRIES SUPPORTED</div>
+              <div className="text-center px-4 pt-10 md:pt-0">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-2">50+</div>
+                <div className="text-gray-500 font-medium tracking-wide text-xs sm:text-sm md:text-base">COUNTRIES SUPPORTED</div>
               </div>
 
-              <div className="text-center px-4 pt-8 md:pt-0">
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">99.9%</div>
-                <div className="text-gray-500 font-medium tracking-wide text-sm md:text-base">SECURITY RATE</div>
+              <div className="text-center px-4 pt-10 md:pt-0">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-2">99.9%</div>
+                <div className="text-gray-500 font-medium tracking-wide text-xs sm:text-sm md:text-base">SECURITY RATE</div>
               </div>
 
             </div>
@@ -82,12 +82,12 @@ export default function AboutPage() {
         </motion.div>
       </div>
       {/* Core Principles Section */}
-      <div className="pt-8 container mx-auto ">
+      <div className="pt-8 container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-medium text-[#0f172a] text-center mb-12"
+          className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#0f172a] text-center mb-10 md:mb-16"
         >
           Core Principles
         </motion.h2>
@@ -97,17 +97,17 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {/* Integrity Card */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="sm:col-span-1">
             <Card className="h-full border-0 shadow-md hover:shadow-xl transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
                   <FileText className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0f172a] mb-3">Integrity</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <p className="text-gray-500 leading-relaxed text-sm md:text-base">
                   Unwavering ethical standards in every verification process we conduct.
                 </p>
               </CardContent>
@@ -115,14 +115,14 @@ export default function AboutPage() {
           </motion.div>
 
           {/* Innovation Card */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="sm:col-span-1">
             <Card className="h-full border-0 shadow-md hover:shadow-xl transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
                   <Zap className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0f172a] mb-3">Innovation</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <p className="text-gray-500 leading-relaxed text-sm md:text-base">
                   Cutting-edge verification technology that evolves with the digital landscape.
                 </p>
               </CardContent>
@@ -130,14 +130,14 @@ export default function AboutPage() {
           </motion.div>
 
           {/* Security Card */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="sm:col-span-1 md:col-span-2 lg:col-span-1">
             <Card className="h-full border-0 shadow-md hover:shadow-xl transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
                   <Landmark className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0f172a] mb-3">Security</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <p className="text-gray-500 leading-relaxed text-sm md:text-base">
                   Military-grade encryption protecting your most sensitive legal documents.
                 </p>
               </CardContent>

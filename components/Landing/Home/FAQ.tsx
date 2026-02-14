@@ -35,16 +35,16 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   return (
     <section className="py-20 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="text-center mb-12 lg:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-5xl  font-medium text-[#0A2540]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#0A2540]"
           >
             Questions about service
           </motion.h2>

@@ -14,22 +14,22 @@ export default function Hero() {
       {/* Background Decorative Gradient */}
       <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-6 lg:px-12 py-16 md:py-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-10 md:py-20 lg:py-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 
         {/* Left Content */}
-        <div className="flex-1 w-full  space-y-8 z-10">
+        <div className="flex-1 w-full space-y-6 md:space-y-8 z-10 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h1 className="text-5xl lg:text-6xl font-medium text-[#0A2540] leading-[1.05] tracking-tight mb-8">
-              Reliable 
-              Document <br />
-              Authentication <br />
-              Services <br />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-[#0A2540] leading-[1.1] tracking-tight mb-6 md:mb-8">
+              Reliable
+              Document <br className="hidden sm:block" />
+              Authentication <br className="hidden sm:block" />
+              Services
             </h1>
-            <p className="text-[#0A2540]/70 text-lg lg:text-lg leading-relaxed font-medium">
+            <p className="text-[#0A2540]/70 text-base sm:text-lg lg:text-xl leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
               Apostille and document legalization services.
             </p>
           </motion.div>

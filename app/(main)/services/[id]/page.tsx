@@ -101,41 +101,38 @@ export default function ServiceRequestPage() {
   };
 
   return (
-    <div className="bg-[#eef5fc] min-h-screen py-10 md:py-20">
+    <div className="bg-[#eef5fc] min-h-screen py-8 md:py-16 lg:py-20">
       <div className="container mx-auto px-4 max-w-6xl">
 
         {/* Page Title */}
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-4xl font-medium text-[#0f172a] mb-10 text-center md:text-left"
+          className="mb-8 md:mb-12 text-center md:text-left"
         >
-          {currentStep === 3 ? "Review and Submit" : "Apostille / Legalization Job Request"}
-        </motion.h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#0f172a] mb-3">
+            {currentStep === 3 ? "Review and Submit" : "Apostille / Legalization Job Request"}
+          </h1>
+          {currentStep === 3 && (
+            <p className="text-gray-500 text-sm sm:text-base">
+              Please verify all information before final submission for authentication.
+            </p>
+          )}
+        </motion.div>
 
-        {currentStep === 3 && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-gray-500 -mt-8 mb-10 text-center md:text-left"
-          >
-            Please verify all information before final submission for authentication.
-          </motion.p>
-        )}
-
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
 
           {/* LEFT COLUMN - Main Form Content */}
           <div className="lg:col-span-2 space-y-6">
 
             {/* STEP 1 CARD */}
             {currentStep < 3 && (
-              <div className="bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-300">
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-sm overflow-hidden transition-all duration-300">
                 <div
-                  className={`p-6 md:p-8 flex items-center justify-between cursor-pointer ${currentStep === 1 ? 'border-b border-gray-100' : ''}`}
+                  className={`p-5 md:p-8 flex items-center justify-between cursor-pointer ${currentStep === 1 ? 'border-b border-gray-100' : ''}`}
                   onClick={() => handleStepClick(1)}
                 >
-                  <h2 className="text-xl font-semibold text-[#0f172a]">Step 1: Type of Verification</h2>
+                  <h2 className="text-lg md:text-xl font-semibold text-[#0f172a]">Step 1: Type of Verification</h2>
                   {currentStep === 1 ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />}
                 </div>
 
@@ -147,8 +144,8 @@ export default function ServiceRequestPage() {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 md:p-8 pt-0 space-y-6 w-full">
-                        <div className="grid md:grid-cols-2 gap-6 w-full">
+                      <div className="p-5 md:p-8 pt-0 space-y-6 w-full">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full">
                           <div className="space-y-2 w-full">
                             <Label className="text-gray-600 font-medium">Document Type</Label>
                             <Select
@@ -176,7 +173,7 @@ export default function ServiceRequestPage() {
                           </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6 w-full">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full">
                           <div className="space-y-2 w-full">
                             <Label className="text-gray-600 font-medium w-full mb-2">State of Issuance</Label>
                             <Select
@@ -216,12 +213,12 @@ export default function ServiceRequestPage() {
 
             {/* STEP 2 CARD */}
             {currentStep < 3 && (
-              <div className="bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-300">
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-sm overflow-hidden transition-all duration-300">
                 <div
-                  className={`p-6 md:p-8 flex items-center justify-between cursor-pointer ${currentStep === 2 ? 'border-b border-gray-100' : ''}`}
+                  className={`p-5 md:p-8 flex items-center justify-between cursor-pointer ${currentStep === 2 ? 'border-b border-gray-100' : ''}`}
                   onClick={() => handleStepClick(2)}
                 >
-                  <h2 className="text-xl font-semibold text-[#0f172a]">Step 2: Upload Document</h2>
+                  <h2 className="text-lg md:text-xl font-semibold text-[#0f172a]">Step 2: Upload Document</h2>
                   {currentStep === 2 ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />}
                 </div>
 
@@ -233,7 +230,7 @@ export default function ServiceRequestPage() {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 md:p-8 pt-0">
+                      <div className="p-5 md:p-8 pt-0">
                         <input
                           type="file"
                           ref={fileInputRef}
@@ -305,10 +302,10 @@ export default function ServiceRequestPage() {
                 className="space-y-6"
               >
                 {/* Document Info Card */}
-                <div className="bg-white rounded-3xl p-8 shadow-sm">
-                  <h2 className="text-xl font-semibold text-[#0f172a] mb-6 border-b border-gray-100 pb-4">Document Information</h2>
+                <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-sm">
+                  <h2 className="text-lg md:text-xl font-semibold text-[#0f172a] mb-6 border-b border-gray-100 pb-4">Document Information</h2>
 
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
                         <FileText className="w-6 h-6" />
@@ -337,10 +334,10 @@ export default function ServiceRequestPage() {
                 </div>
 
                 {/* Applicant Details Card */}
-                <div className="bg-white rounded-3xl p-8 shadow-sm">
-                  <h2 className="text-xl font-semibold text-[#0f172a] mb-6 border-b border-gray-100 pb-4">Applicant Details</h2>
+                <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-sm">
+                  <h2 className="text-lg md:text-xl font-semibold text-[#0f172a] mb-6 border-b border-gray-100 pb-4">Applicant Details</h2>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     <div>
                       <span className="text-xs text-gray-500 uppercase font-bold tracking-wide">Full Name</span>
                       <p className="text-[#0f172a] font-semibold mt-1">Jonathan Alexander Miller</p>
@@ -386,8 +383,8 @@ export default function ServiceRequestPage() {
 
             {/* NEED HELP WIDGET (Steps 1 & 2) */}
             {currentStep < 3 && (
-              <div className="bg-[#0f172a] rounded-3xl p-8 text-white sticky top-10">
-                <h3 className="text-2xl font-semibold mb-2">Need Help?</h3>
+              <div className="bg-[#0f172a] rounded-2xl md:rounded-3xl p-6 md:p-8 text-white sticky top-10">
+                <h3 className="text-xl md:text-2xl font-semibold mb-2">Need Help?</h3>
                 <div className="space-y-4 mt-6">
                   <p className="text-sm font-light text-blue-100">
                     <span className="block mb-1">support@legalizedocs.io</span>
@@ -407,7 +404,7 @@ export default function ServiceRequestPage() {
               <div className="space-y-6 sticky top-10">
 
                 {/* Overall Progress */}
-                <div className="bg-white rounded-3xl p-6 shadow-sm">
+                <div className="bg-white rounded-2xl md:rounded-3xl p-6 shadow-sm">
                   <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-[#0f172a]">Overall Progress</h3>
                     <span className="font-bold text-[#0f172a]">75%</span>
@@ -417,8 +414,8 @@ export default function ServiceRequestPage() {
                 </div>
 
                 {/* Order Summary */}
-                <div className="bg-[#0f172a] rounded-3xl p-8 text-white">
-                  <h3 className="text-xl font-semibold mb-6">Order Summary</h3>
+                <div className="bg-[#0f172a] rounded-2xl md:rounded-3xl p-6 md:p-8 text-white">
+                  <h3 className="text-lg md:text-xl font-semibold mb-6">Order Summary</h3>
 
                   <div className="space-y-4 mb-8">
                     <div className="flex justify-between items-center text-sm">

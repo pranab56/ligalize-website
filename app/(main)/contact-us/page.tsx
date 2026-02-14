@@ -59,13 +59,13 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-[#eef5fc] min-h-screen py-20">
+    <div className="bg-[#eef5fc] min-h-screen py-10 md:py-20">
 
       {/* Hero Header Section */}
       <Banner title="Get in Touch with Our Legal Experts" description="Our team is here to help you navigate document authentication, security protocols, and legal compliance." buttonText="View FAQs" buttonLink="/faqs" />
 
-      <div className="container mx-auto pt-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
           {/* Left Content - Form */}
           <motion.div
@@ -73,9 +73,9 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-blue-900/5"
+            className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl shadow-blue-900/5"
           >
-            <h2 className="text-3xl font-medium text-[#0f172a] mb-8">Ask us anything!</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-[#0f172a] mb-8">Ask us anything!</h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,9 +150,9 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 h-full pt-10 lg:pl-8 space-y-10"
+            className="lg:col-span-5 h-full lg:pl-8 space-y-10"
           >
-            <h2 className="text-3xl font-medium text-[#0f172a] mb-8">Direct Contact</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-[#0f172a] mb-8">Direct Contact</h2>
 
             <div className="space-y-8">
               {/* Address Item */}
@@ -161,7 +161,7 @@ const ContactPage = () => {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-xl font-semibold text-[#1e293b]">Office Address</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-[#1e293b]">Office Address</h3>
                   <p className="text-gray-500 leading-relaxed max-w-[250px]">
                     1200 Avenue of the Americas<br />
                     New York, NY 10036
@@ -175,7 +175,7 @@ const ContactPage = () => {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-xl font-semibold text-[#1e293b]">Phone Number</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-[#1e293b]">Phone Number</h3>
                   <p className="text-gray-500 font-medium">+1 (800) 123-4567</p>
                   <p className="text-gray-400 text-xs tracking-wide uppercase font-medium">Mon-Fri, 9am-6pm EST</p>
                 </div>
@@ -187,7 +187,7 @@ const ContactPage = () => {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-xl font-semibold text-[#1e293b]">Email Address</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-[#1e293b]">Email Address</h3>
                   <a href="mailto:info@legalizedocs.com" className="text-gray-500 hover:text-blue-600 transition-colors block">
                     info@legalizedocs.com
                   </a>

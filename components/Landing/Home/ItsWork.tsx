@@ -33,16 +33,16 @@ const steps = [
 export default function ItsWork() {
   return (
     <section className="py-20 lg:py-32 bg-[#F5F7FA]">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-24">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-5xl font-medium text-[#0A2540] mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#0A2540] mb-4 sm:mb-6"
           >
             How It Works
           </motion.h2>
@@ -51,14 +51,14 @@ export default function ItsWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-[#0A2540]/70 font-semibold"
+            className="text-base sm:text-lg md:text-xl text-[#0A2540]/70 font-semibold px-4"
           >
             Streamlining document validation in four simple steps
           </motion.p>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -69,22 +69,22 @@ export default function ItsWork() {
               className="relative"
             >
               {/* Step Number Badge */}
-              <div className="absolute -top-4 -left-3 w-10 h-10 bg-[#1F6AE1] text-white rounded-full flex items-center justify-center font-bold text-sm z-20 shadow-lg shadow-blue-200">
+              <div className="absolute -top-3 -left-2 sm:-top-4 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 bg-[#1F6AE1] text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm z-20 shadow-lg shadow-blue-200">
                 {String(index + 1).padStart(2, '0')}
               </div>
 
               {/* Card */}
-              <div className="h-full bg-white rounded-3xl p-8 shadow-xl shadow-gray-200/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-start text-left">
+              <div className="h-full bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl shadow-gray-200/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-start text-left">
                 {/* Icon Container */}
-                <div className="mb-6 w-14 h-14 rounded-xl bg-[#E8F1FB] flex items-center justify-center text-[#1F6AE1] group-hover:bg-[#1F6AE1] group-hover:text-white transition-colors duration-300">
-                  <step.icon className="w-7 h-7" />
+                <div className="mb-5 sm:mb-6 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#E8F1FB] flex items-center justify-center text-[#1F6AE1] group-hover:bg-[#1F6AE1] group-hover:text-white transition-colors duration-300">
+                  <step.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
 
-                <h3 className="text-2xl font-medium text-[#0A2540] mb-4">
+                <h3 className="text-xl sm:text-2xl font-medium text-[#0A2540] mb-3 sm:mb-4">
                   {step.title}
                 </h3>
 
-                <p className="text-[#0A2540]/60  leading-relaxed font-medium">
+                <p className="text-[#0A2540]/60 text-sm sm:text-base leading-relaxed font-medium">
                   {step.description}
                 </p>
               </div>

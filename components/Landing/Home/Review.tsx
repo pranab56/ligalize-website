@@ -35,16 +35,16 @@ const carouselReviews = [...reviews, ...reviews]
 export default function Review() {
   return (
     <section className="py-20 lg:py-32 bg-[#E8F1FB] overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-24">
+        <div className="text-center mb-12 lg:mb-24 px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-5xl font-medium text-[#0A2540]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#0A2540] mb-4"
           >
             Trusted by Legal Experts
           </motion.h2>

@@ -10,53 +10,52 @@ export default function Footer() {
   return (
     <footer className="bg-[#FFFFFF] border-t border-slate-100/50 pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 md:gap-16 lg:gap-8 mb-16">
 
-          {/* Brand Section - Takes up full width on mobile, half on tablet, 5 columns on desktop */}
+          {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="sm:col-span-2 lg:col-span-5 space-y-6"
+            className="md:col-span-2 lg:col-span-5 space-y-6 text-center md:text-left"
           >
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex justify-center md:justify-start">
               <Image
                 src="/icons/Logo.png"
                 alt="LegalizeDocs Logo"
                 width={208}
                 height={152}
-                className="w-40 sm:w-48 md:w-52 h-auto object-contain"
+                className="w-32 sm:w-40 md:w-52 h-auto object-contain"
                 priority
               />
-
             </Link>
 
-            <p className="text-slate-500 text-base leading-relaxed max-w-sm">
+            <p className="text-slate-500 text-base leading-relaxed max-w-sm mx-auto md:mx-0">
               The gold standard in digital legal authentication and document verification. Secure, fast, and globally compliant.
             </p>
           </motion.div>
 
-          {/* Company Links - Takes up 3 columns */}
+          {/* Company Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="sm:col-span-1 lg:col-span-3 lg:pl-8 space-y-6"
+            className="md:col-span-1 lg:col-span-3 lg:pl-8 space-y-6 text-center md:text-left"
           >
             <h3 className="font-semibold text-[#0f172a] text-lg">Company</h3>
             <ul className="space-y-4">
               {[
                 { label: "Home", href: "/" },
                 { label: "Services", href: "/services" },
-                { label: "About Us", href: "/about" },
-                { label: "Contact Us", href: "/contact" },
+                { label: "About Us", href: "/about-us" },
+                { label: "Contact Us", href: "/contact-us" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-500 hover:text-[#10b981] transition-colors"
+                    className="text-slate-500 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -65,29 +64,28 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact Info - Takes up 4 columns */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="sm:col-span-1 lg:col-span-4 space-y-6"
+            className="md:col-span-1 lg:col-span-4 space-y-6 text-center md:text-left"
           >
             <h3 className="font-semibold text-[#0f172a] text-lg">Contact</h3>
             <div className="space-y-6">
 
-              <div className="flex gap-4 items-start group">
-                <div className="text-blue-500 mt-1 shrink-0">
+              <div className="flex flex-col md:flex-row gap-4 items-center md:items-start group">
+                <div className="text-blue-500 shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="space-y-1">
                   <a href="mailto:info@legalizedocs.com" className="block text-slate-500 hover:text-blue-600 transition-colors">info@legalizedocs.com</a>
                   <a href="mailto:processing@legalizedocs.com" className="block text-slate-500 hover:text-blue-600 transition-colors">processing@legalizedocs.com</a>
-                  <a href="mailto:billing@legalizedocs.com" className="block text-slate-500 hover:text-blue-600 transition-colors">billing@legalizedocs.com</a>
                 </div>
               </div>
 
-              <div className="flex gap-4 items-center group">
+              <div className="flex flex-col md:flex-row gap-4 items-center md:items-start group">
                 <div className="text-blue-500 shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
@@ -96,8 +94,8 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="flex gap-4 items-start group">
-                <div className="text-blue-500 mt-1 shrink-0">
+              <div className="flex flex-col md:flex-row gap-4 items-center md:items-start group">
+                <div className="text-blue-500 shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <span className="text-slate-500 max-w-[250px]">
@@ -107,7 +105,6 @@ export default function Footer() {
 
             </div>
           </motion.div>
-
         </div>
 
         {/* Copyright */}
