@@ -6,12 +6,24 @@ import { ArrowRight, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
+
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -26,21 +38,18 @@ export default function Header() {
       animate={{ y: 0, opacity: 1 }}
       className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100"
     >
-      <div className="container mx-auto px-4 lg:px-12 h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-9 h-9">
+          <div className="relative">
             <Image
               src="/icons/Logo.png"
               alt="LegalizeDocs Logo"
-              fill
-              className="object-contain"
+              width={208}
+              height={152}
+              className="w-32 sm:w-40 md:w-52 h-auto object-contain"
               priority
             />
-          </div>
-          <div className="flex items-center text-xl font-bold tracking-tight">
-            <span className="text-[#0A2540]">Legalize</span>
-            <span className="text-[#2DC766]">Docs</span>
           </div>
         </Link>
 
@@ -91,42 +100,52 @@ export default function Header() {
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="fixed inset-0 top-20 bg-white z-40 md:hidden flex flex-col p-6 gap-8 shadow-xl"
-            >
-              <nav className="flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-lg font-semibold py-2 border-b border-gray-50 ${pathname === item.href ? 'text-primary' : 'text-[#0A2540]'
-                      }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+                className="fixed inset-0 top-20 bg-slate-900/20 backdrop-blur-sm z-30 md:hidden"
+              />
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                className="fixed right-0 top-20 bottom-0 w-[280px] sm:w-[320px] bg-white z-40 md:hidden flex flex-col p-6 gap-8 shadow-2xl border-l border-slate-100 overflow-y-auto"
+              >
+                <nav className="flex flex-col gap-4">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-lg font-semibold py-2 border-b border-gray-50 ${pathname === item.href ? 'text-primary' : 'text-[#0A2540]'
+                        }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
 
-              <div className="flex flex-col gap-3">
-                <Button
-                  onClick={() => { router.push('/login'); setIsOpen(false); }}
-                  variant="outline"
-                  className="w-full h-12 border-primary text-[#0A2540] font-bold rounded-xl"
-                >
-                  Login <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button
-                  onClick={() => { router.push('/signup'); setIsOpen(false); }}
-                  className="w-full h-12 bg-primary text-white font-bold rounded-xl"
-                >
-                  Sign Up <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
-            </motion.div>
+                <div className="flex flex-col gap-3">
+                  <Button
+                    onClick={() => { router.push('/login'); setIsOpen(false); }}
+                    variant="outline"
+                    className="w-full h-12 border-primary text-[#0A2540] font-bold rounded-xl"
+                  >
+                    Login <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                  <Button
+                    onClick={() => { router.push('/signup'); setIsOpen(false); }}
+                    className="w-full h-12 bg-primary text-white font-bold rounded-xl"
+                  >
+                    Sign Up <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

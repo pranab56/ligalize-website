@@ -5,6 +5,7 @@ import Banner from "@/components/common/Banner";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Briefcase, Check, FileText, Stamp, X } from "lucide-react";
+import { useRouter } from 'next/navigation';
 import FAQ from '../../../components/Landing/Home/FAQ';
 
 export default function ServicesPage() {
@@ -22,6 +23,9 @@ export default function ServicesPage() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
+
+  const router = useRouter();
+
 
   return (
     <div className="bg-[#eef5fc] py-10 flex flex-col gap-20">
@@ -61,7 +65,7 @@ export default function ServicesPage() {
           >
             {/* Service 1: Document Review */}
             <motion.div variants={itemVariants}>
-              <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card onClick={() => router.push("/services/sfsdfs")} className="h-full border-0 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8 text-left h-full flex flex-col">
                   <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-blue-600">
                     <FileText className="w-7 h-7" />

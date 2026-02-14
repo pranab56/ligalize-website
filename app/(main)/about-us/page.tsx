@@ -30,7 +30,7 @@ export default function AboutPage() {
         title="Redefining Trust in the Digital Age"
         description="Global, secure, and legally-binding document authentication built for the modern professional landscape."
         buttonText="Explore Our Solutions"
-        buttonLink="/services"
+        buttonLink="/contact-us"
       />
 
       <div className="container mx-auto max-w-6xl space-y-8">

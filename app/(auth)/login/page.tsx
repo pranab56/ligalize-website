@@ -2,9 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import { ArrowRight, Eye, EyeOff } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
@@ -50,13 +51,13 @@ export default function LoginPage() {
     // Simulate login delay
     setTimeout(() => {
       setIsLoading(false);
-      if(email === 'my@gmail.com' && password === 'hello123') {
+      if (email === 'my@gmail.com' && password === 'hello123') {
         toast.success('Login successful!');
         router.push('/my-dashboard');
-      } else if(email === 'provider@gmail.com' && password === 'hello123') {
+      } else if (email === 'provider@gmail.com' && password === 'hello123') {
         toast.success('Login successful!');
         router.push('/provider');
-      } 
+      }
       else {
         toast.error('Invalid email or password!');
       }
@@ -64,37 +65,35 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-white font-sans">
-      {/* Left Panel - Feature Showcase */}
-      <div className="hidden lg:flex lg:w-1/2 bg-[#F9FAFB] relative flex-col justify-between p-12 overflow-hidden items-center justify-center">
-        {/* Background Decorative Elements could go here */}
-        <div className='w-10/12 h-12/12 relative'>
-          <Image src="/images/auth/login.png" alt="Login Background" fill className="" />
-        </div>
-      </div>
-
-      {/* Right Panel - Login Form */}
-      <div className="flex-1 flex items-center justify-center p-4 sm:p-8 bg-white ">
-        <div className="w-full max-w-[480px] p-6 sm:p-10 bg-white rounded-3xl shadow-none sm:shadow-xl border border-gray-100 sm:border-none">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h2>
-            <p className="text-sm sm:text-base text-gray-500">Please enter your details to login</p>
+    <div className="flex min-h-screen items-center justify-center bg-[#EEF2F9] p-4 font-sans">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-xl"
+      >
+        <div className="bg-white rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-8 md:p-12">
+          {/* Header */}
+          <div className="text-center mb-10">
+            <h1 className="text-[2rem] font-medium text-[#1A1D2E] mb-2">Welcome Back!</h1>
+            <p className="text-[#64748B] text-base">Please enter your details to login</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700">Email</label>
+              <Label className="text-sm font-medium text-[#1A1D2E] ml-1">Email Address</Label>
               <Input
                 type="email"
-                placeholder="name@company.com"
+                placeholder="Enter your email address here..."
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                   if (errors.email) setErrors({ ...errors, email: undefined });
                 }}
                 className={cn(
-                  "h-12 bg-[#F9FAFB] border-none rounded-xl focus-visible:ring-1 transition-all",
-                  errors.email ? "focus-visible:ring-red-500 bg-red-50/50" : "focus-visible:ring-[#9B85C1]"
+                  " bg-[#EBF2FA] border-none rounded-2xl focus-visible:ring-1 px-5 transition-all",
+                  errors.email ? "focus-visible:ring-red-500 bg-red-50/50" : "focus-visible:ring-[#1D68D5]"
                 )}
               />
               {errors.email && (
@@ -105,25 +104,25 @@ export default function LoginPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700">Password</label>
+              <Label className="text-sm font-medium text-[#1A1D2E] ml-1">Password</Label>
               <div className="relative">
                 <Input
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Enter password"
+                  placeholder="Enter your password here..."
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                     if (errors.password) setErrors({ ...errors, password: undefined });
                   }}
                   className={cn(
-                    "h-12 bg-[#F9FAFB] border-none rounded-xl focus-visible:ring-1 transition-all pr-10",
-                    errors.password ? "focus-visible:ring-red-500 bg-red-50/50" : "focus-visible:ring-[#9B85C1]"
+                    " bg-[#EBF2FA] border-none rounded-2xl focus-visible:ring-1 px-5 transition-all pr-12",
+                    errors.password ? "focus-visible:ring-red-500 bg-red-50/50" : "focus-visible:ring-[#1D68D5]"
                   )}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                  className="absolute right-4 cursor-pointer top-1/2 -translate-y-1/2 text-[#94A3B8] hover:text-[#1A1D2E] transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -136,31 +135,32 @@ export default function LoginPage() {
             </div>
 
             <div className="flex justify-end">
-              <Link href="/forgot-password" className="text-sm text-[#5aa8a9] hover:text-[#4a8a8b] font-medium">
-                Forget Password?
+              <Link href="/forgot-password" className="text-sm text-[#FF5B5B] hover:text-[#EF4444] font-medium transition-colors">
+                Forgot Password?
               </Link>
             </div>
 
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-12 bg-[#9B85C1] hover:bg-[#8A74B0] text-white rounded-xl text-base font-medium transition-all shadow-md group"
+              className="w-full h-12 bg-[#1D68D5] hover:bg-[#1A5BBF] text-white rounded-2xl text-lg font-medium transition-all group"
             >
               {isLoading ? 'Logging in...' : (
                 <span className="flex items-center gap-2">
-                  Login <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Login <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               )}
             </Button>
           </form>
-          <div className="text-center mt-4 text-sm text-gray-500">
+
+          <div className="text-center mt-8 text-[#64748B] text-base">
             Don&apos;t have an account?{" "}
-            <Link href="/signup" className="text-[#5aa8a9] hover:text-[#4a8a8b] font-medium">
-              Register
+            <Link href="/signup" className="text-[#1D68D5] hover:underline text-sm font-medium">
+              Create Account
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
